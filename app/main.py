@@ -1,7 +1,11 @@
 from fastapi import FastAPI
-
-from .views import router as text_api_router
+from app import schemas, models
+from app.database import engine
 
 app = FastAPI()
 
-app.include_router(text_api_router, tags=["text"])
+models.Base.metadata.create_all(engine)
+
+@app.post('/post')
+def create(request: schemas.Text ):
+    return request

@@ -5,5 +5,5 @@ class Text(Base):
     __tablename__ = 'texts'
 
     textID = Column(Integer, primary_key=True, index=True)
-    text = Column(String)
+    text = Column(String(160), nullable=False)
     counter = Column(Integer)
