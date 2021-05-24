@@ -1,5 +1,21 @@
-from sqlalchemy import Column, Integer, String
-from app.database import Base
+from sqlalchemy import (
+    Column,
+    Date,
+    Float,
+    Integer,
+    LargeBinary,
+    SmallInteger,
+    String,
+    Table,
+    Text,
+    ForeignKey,
+)
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.sql.sqltypes import NullType
+from sqlalchemy.orm import relationship
+
+Base = declarative_base()
+metadata = Base.metadata
 
 class Text(Base):
     __tablename__ = 'texts'
